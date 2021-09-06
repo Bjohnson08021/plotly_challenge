@@ -44,18 +44,69 @@ function plotting(nameID){
     };
   //reference id="bar" from html
    Plotly.newPlot("bar", barchart, labels);
-   //plotting(940)
-
+   
     //plot bubble chart
-    let trace2 = { 
+    let trace2 = {
       x: otu_ids,
       y: sample_values,
-      type: "bubble",
-      //orientation: "h",
+      mode: "markers",
+      text:otu_labels,
+      marker:{
+       //size is the size of sample values
+        size: sample_values,
+        color: otu_ids
+      }
+     };
+     let bubblechart = [trace2];
+     let bubble_labels = {
+       title: "Bacteria Per sample"
+     };
+    
+  //reference id="bubble" from index.html
+  Plotly.newPlot("bubble", bubblechart, bubble_labels);
+  
+  //plot gauge chart
+  //  let clean = data.metadata;
+    
+  // let trace3 = {
+  //   domain: { x: [0, 1], y: [0, 1] },
+  //   value: clean.wfreq,
+  //   title: { text: "Belly Button Washing Frequeny (scrubs per week)" },
+  //   type: "indicator",
+  //   mode: "gauge+number",
+  //   gauge: {
+  //     axis: { range: [null, 9] },
+  //     steps: [
+  //       { range: [0, 1], color: "white" },
+  //       { range: [1, 2], color: "tan" },
+  //       { range: [2, 3], color: "lightgrey" },
+  //       { range: [3, 4], color: "mossgreen" },
+  //       { range: [4, 5], color: "lightgreen" },
+  //       { range: [5, 6], color: "green" },
+  //       { range: [6, 7], color: "olive" },
+  //       { range: [7, 8], color: "darkgreen" },
+  //       { range: [8, 9], color: "emerald" }
+      });
+      
+    };
+    mymetadata(940)
+    plotting(940)
+//   var x = [];
+//   var y = [];
 
-  };
-  // d3.json("sample.json").then(function(data) {
-//     console.log(data);
-//   });
- 
+//   if (dataset === 'dataset1') {
+//     x = [1, 2, 3, 4, 5];
+//     y = [1, 2, 4, 8, 16];
+//   }
 
+//   else if (dataset === 'dataset2') {
+//     x = [10, 20, 30, 40, 50];
+//     y = [1, 10, 100, 1000, 10000];
+//   }
+
+//   // Note the extra brackets around 'x' and 'y'
+//   Plotly.restyle("plot", "x", [x]);
+//   Plotly.restyle("plot", "y", [y]);
+// }
+
+// init()
